@@ -33,7 +33,7 @@ function scrollHandler() {
     }
   }
 
-  var parallaxY = (scroll / 2).toFixed(0);
+  var parallaxY = (scroll / 1.6).toFixed(0);
 
   // $('.intro-background').css({
   //   'background-position': 'center calc(100% + ' + scroll / 2 + 'px)'
