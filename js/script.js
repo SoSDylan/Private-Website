@@ -47,5 +47,4 @@ function scrollHandler() {
   $('.intro-background').css({ // TODO: only call when on screen
     'transform': 'translate3d(0px, -' + parallaxY + 'px, -1px)'
   });
-  console.log(parallaxY);
 }
