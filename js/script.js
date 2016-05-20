@@ -1,9 +1,14 @@
 var headerFixed = false;
 
-$('.body').scroll(function() {
+$(window).scroll(function() {
+  window.requestAnimationFrame(scrollHandler);
+});
+
+function scrollHandler() {
+  var scroll = $(window).scrollTop();
   var introHeight = $('.intro-section').height();
 
-  if ($(this).scrollTop() >= introHeight) {
+  if (scroll >= introHeight) {
     if (!headerFixed) {
       headerFixed = true;
 
@@ -27,4 +32,20 @@ $('.body').scroll(function() {
       });
     }
   }
-});
+
+  var parallaxY = (scroll / 2).toFixed(0);
+
+  // $('.intro-background').css({
+  //   'background-position': 'center calc(100% + ' + scroll / 2 + 'px)'
+  // });
+
+  // $('.intro-background').animate({
+  //   transform: 'translate3d(0px, -' + parallaxY + 'px, -1px)'
+  // }, 250, function() {
+  // });
+
+  $('.intro-background').css({ // TODO: only call when on screen
+    'transform': 'translate3d(0px, -' + parallaxY + 'px, -1px)'
+  });
+  console.log(parallaxY);
+}
