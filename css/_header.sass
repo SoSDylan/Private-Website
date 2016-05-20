@@ -1,0 +1,61 @@
+header
+  position: absolute
+  width: 100vw
+  display: flex
+  padding: 24px 24px
+  background-color: none
+  z-index: 10
+
+  &.fixed
+    position: fixed
+    background: rgba(0, 0, 0, 0.5)
+
+  .header-title
+    span
+      color: #eee
+      font:
+        size: 24px
+        weight: 400
+      text:
+        transform: uppercase
+      letter-spacing: 4px
+
+  .header-navigation
+    position: absolute
+    right: 72px
+    padding-top: 4px
+
+    @media(max-width: 760px)
+      display: none
+
+    span
+      color: #eee
+      font:
+        size: 13px
+        weight: 500
+      text:
+        transform: uppercase
+      letter-spacing: 2px
+      padding: 12px
+      transition: all ease-in-out 0.1s
+
+      &.selected
+        color: rgba(255, 255, 255, 0.4)
+
+      &:hover
+        color: rgba(255, 255, 255, 0.4)
+
+      &.button
+        border:
+          color: #eee
+          style: solid
+          width: 2px
+        padding: 12px
+        margin-left: 12px
+
+        &:hover
+          color: #111
+          background-color: #eee
+
+  a
+    text-decoration: none
