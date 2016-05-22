@@ -12,10 +12,10 @@ function scrollHandler() {
     if (!headerFixed) {
       headerFixed = true;
 
-      $('header').addClass('fixed');
+      $('nav').addClass('fixed');
 
-      $('header').css({ top: '-76px' });
-      $('header').animate({
+      $('nav').css({ top: '-76px' });
+      $('nav').animate({
         top: '0px'
       }, 250, function() {
       });
@@ -24,7 +24,7 @@ function scrollHandler() {
     if (headerFixed) {
       headerFixed = false;
 
-      $('header').animate({
+      $('nav').animate({
         top: '-76px'
       }, 250, function() {
         $('header').removeClass('fixed');
