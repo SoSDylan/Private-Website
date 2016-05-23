@@ -1,4 +1,4 @@
-var headerFixed = false;
+var navFixed = false;
 
 $(window).scroll(function() {
   window.requestAnimationFrame(scrollHandler);
@@ -9,8 +9,8 @@ function scrollHandler() {
   var introHeight = $('.intro-section').height();
 
   if (scroll >= introHeight) {
-    if (!headerFixed) {
-      headerFixed = true;
+    if (!navFixed) {
+      navFixed = true;
 
       $('nav').addClass('fixed');
 
@@ -21,14 +21,14 @@ function scrollHandler() {
       });
     }
   } else {
-    if (headerFixed) {
-      headerFixed = false;
+    if (navFixed) {
+      navFixed = false;
 
       $('nav').animate({
         top: '-76px'
       }, 250, function() {
-        $('header').removeClass('fixed');
-        $('header').css({ top: '0px' });
+        $('nav').removeClass('fixed');
+        $('nav').css({ top: '0px' });
       });
     }
   }
