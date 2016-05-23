@@ -35,16 +35,9 @@ function scrollHandler() {
 
   var parallaxY = (scroll / 1.6).toFixed(0);
 
-  // $('.intro-background').css({
-  //   'background-position': 'center calc(100% + ' + scroll / 2 + 'px)'
-  // });
-
-  // $('.intro-background').animate({
-  //   transform: 'translate3d(0px, -' + parallaxY + 'px, -1px)'
-  // }, 250, function() {
-  // });
-
-  $('.intro-background').css({ // TODO: only call when on screen
-    'transform': 'translate3d(0px, -' + parallaxY + 'px, -1px)'
-  });
+  if (scroll <= introHeight) {
+    $('.intro-background').css({ // TODO: only call when on screen
+      'transform': 'translate3d(0px, -' + parallaxY + 'px, -1px)'
+    });
+  }
 }

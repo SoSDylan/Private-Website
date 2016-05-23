@@ -5,15 +5,16 @@
 
   .intro-background
     position: fixed
-    height: 100vh
-    width: 100vw
+    height: 110%
+    width: 100%
     background:
       image: url('../images/intro-background-956.jpg')
       repeat: no-repeat
-      position: center calc(100% + 0px)
+      position: center bottom // calc(100% + 0px)
       size: cover // TODO: maybe use this?
     // min-width: 100%
     // min-height: 100%
+    transition: transform 0.075s cubic-bezier(0.14, 0.63, 0.14, 0.99) // cubic-bezier(0, 0, 0.2, 1) // cubic-bezier(0.22, 0.61, 0.36, 1)
 
   .intro-title
     position: absolute
