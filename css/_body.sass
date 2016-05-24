@@ -5,7 +5,7 @@
 
   .intro-background
     position: fixed
-    height: 110%
+    height: 110vh
     width: 100%
     background:
       image: url('../images/intro-background-956.jpg')
@@ -39,14 +39,20 @@
         color: #eee
         font:
           family: 'Lato'
-          size: 72px
+          size: 62px
           weight: 300
         margin-top: 0
+
+        @media(max-width: 680px)
+          font-size: 44px
+
+        @media(max-width: 620px)
+          font-size: 36px
 
       h3
         color: #999
         font:
-          size: 28px
+          size: 1.75rem
           weight: 200
         text-transform: uppercase
         letter-spacing: 4px
@@ -55,17 +61,36 @@
 .about-section
   height: 100%
   width: 100%
-  background-color: #f2f2e6
-  // background-color: honeydew
+  background-color: #f4f4f7
+
+  .about-title
+    padding: 22px 0 0
+
+    @media(max-width: 860px)
+      padding: 22px 0 10px 0
 
   .about-content
     width: 860px
     margin: 0 auto
-    padding: 0 0 32px 0
+    padding: 0 8px 32px 8px
+    box-sizing: border-box
     display: flex
+    flex-direction: row
+
+    @media(max-width: 860px)
+      width: 100%
+      padding: 0 24px 32px 24px
+
+    @media(max-width: 620px)
+      flex-direction: column
 
     .about-image
       width: 25%
+
+      @media(max-width: 620px)
+        width: 120px
+        margin: 0 auto
+        padding-bottom: 8px
 
       .profile-image
         width: 100%
@@ -77,4 +102,14 @@
       height: 100%
       width: 75%
       padding-left: 24px
+      box-sizing: border-box
       margin: auto 0
+      font-size: 16px
+      text-align: justify
+
+      @media(max-width: 680px)
+        font-size: 14px
+
+      @media(max-width: 620px)
+        width: 100%
+        padding: 0 16px
