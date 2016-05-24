@@ -14,14 +14,14 @@ body
                 a(href="")
                     span DYLΛN LΛRSEN
             .header-navigation
-                a(href="#intro")
-                    span.selected Home
-                a(href="#about")
+                a(href="#intro")#intro-nav.selected
+                    span Home
+                a(href="#about")#about-nav
                     span About
-                a(href="#portfolio")
+                a(href="#portfolio")#portfolio-nav
                     span Portfolio
-                a(href="#contact")
-                    span.button Contact Me
+                a(href="#contact")#contact-nav.button
+                    span Contact Me
 
         #intro.intro-section.parallax-parent
             .intro-background
@@ -31,6 +31,9 @@ body
                     h3 DYLΛN LΛRSEN
                     h1 Lorem ipsum, dolor sit amet.
         #about.about-section
+            .about-content
+                .about-image
+                    img(src="./images/profile.jpg").profile-image
         .placeholder
 
         //footer.paralax-group
