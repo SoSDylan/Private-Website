@@ -39,7 +39,7 @@ function scrollHandler() {
 
   var navSections = [ [ $('#intro'), $('#intro-nav') ], [ $('#about'), $('#about-nav') ]/*, [ $('#portfolio'), $('#portfolio-nav') ], [ $('#contact'), $('#contact-nav') ]*/ ];
   for (var i = 0, l = navSections.length; i < l; i++) {
-    if (scroll >= navSections[i][0].offset().top && scroll < navSections[i][0].offset().top + navSections[i][0].height()) {
+    if (scroll + 100 >= navSections[i][0].offset().top && scroll + 100 < navSections[i][0].offset().top + navSections[i][0].height()) {
       navSections[i][1].addClass('selected');
     } else {
       navSections[i][1].removeClass('selected');
