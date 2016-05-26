@@ -55,7 +55,7 @@ function scrollHandler() {
   }
 
   // if (scroll <= introHeight) {
-  var imagesParallax = -1 * (parallaxY - $('#intro').height() + $('#about').height());
+  var imagesParallax = -(parallaxY - 400);
   // console.log(parallaxY - $('#intro').height() + $('#about').height() - $(window).height());
   $('#images-parallax').css({ // TODO: only call when on screen
     'transform': 'translate3d(0px, ' + (imagesParallax) + 'px, -1px)'
