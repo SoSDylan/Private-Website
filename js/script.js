@@ -68,19 +68,21 @@ function scrollHandler() {
 // }
 
 $(document).on('click', 'a[href^="#"]', function(e) {
-    // target element id
-    var id = $(this).attr('href');
+  // target element id
+  var id = $(this).attr('href');
 
-    // target element
-    var $id = $(id);
-    if ($id.length === 0) {
-        return;
-    }
+  // target element
+  var $id = $(id);
+  if ($id.length === 0) {
+      return;
+  }
 
-    // prevent standard hash navigation (avoid blinking in IE)
-    e.preventDefault();
-    // top position relative to the document
-    var pos = $(id).offset().top < 76 ? 0 : $(id).offset().top - 76;
-    // animated top scrolling
-    $('body, html').animate({ scrollTop: pos }, 1000, "easeOutQuart");
+  // prevent standard hash navigation (avoid blinking in IE)
+  e.preventDefault();
+  // top position relative to the document
+  var pos = $(id).offset().top < 76 ? 0 : $(id).offset().top - 76;
+  var time = 800;//Math.abs(($(id).offset().top - 76 - $(window).scrollTop()).toFixed(0));
+  console.log(time);
+  // animated top scrolling
+  $('body, html').animate({ scrollTop: pos }, time, "easeOutQuart");
 });
