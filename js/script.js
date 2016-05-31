@@ -38,7 +38,7 @@ function scrollHandler() {
   }
 
   var navSections = [ [ $('#intro'), $('#intro-nav') ], [ $('#about'), $('#about-nav') ], [ $('#images'), $('#images-nav') ]/*, [ $('#portfolio'), $('#portfolio-nav') ], [ $('#contact'), $('#contact-nav') ]*/ ];
-  for (var i = 0, l = navSections.length; i < l; i++) {
+  for (var i = 0; i < navSections.length; i++) {
     if (scroll + 76 >= navSections[i][0].offset().top && scroll + 76 < navSections[i][0].offset().top + navSections[i][0].height()) {
       navSections[i][1].addClass('selected');
     } else {
@@ -48,18 +48,34 @@ function scrollHandler() {
 
   var parallaxY = (scroll / 1.6).toFixed(0);
 
-  if (scroll <= introHeight) {
-    $('#intro-parallax').css({ // TODO: only call when on screen
-      'transform': 'translate3d(0px, -' + parallaxY + 'px, -1px)'
-    });
-  }
-
   // if (scroll <= introHeight) {
-  var imagesParallax = -(parallaxY - 400);
-  // console.log(parallaxY - $('#intro').height() + $('#about').height() - $(window).height());
-  $('#images-parallax').css({ // TODO: only call when on screen
-    'transform': 'translate3d(0px, ' + (imagesParallax) + 'px, -1px)'
-  });
+  //   $('#intro-parallax').css({ // TODO: only call when on screen
+  //     'transform': 'translate3d(0px, -' + parallaxY + 'px, -1px)'
+  //   });
+  // }
+
+  var parallaxTop = 0;
+  var parallaxBottom = -$(window).height();
+
+  var parallaxSections = [ [ $('#intro'), $('#intro-parallax') ], [ $('#about'), null ], [ $('#images'), $('#images-parallax') ] ];
+  for (var i = 0; i < parallaxSections.length; i++) {
+    parallaxTop += parallaxSections[i][0].height();
+    if (parallaxSections[i][1] != null && scroll <= parallaxTop && scroll >= parallaxBottom) {
+      var parallaxValue = -(parallaxBottom - 100) > 0 ? -(parallaxY) : -(parallaxY - parallaxBottom - 100);
+      if (i == 0) {
+        console.log(parallaxValue);
+      }
+      parallaxSections[i][1].css({
+        'transform': 'translate3d(0px, ' + (parallaxValue) + 'px, -1px)'
+      });
+    }
+    parallaxBottom += parallaxSections[i][0].height();
+  }
+  // if (scroll <= parallaxTop && scroll >= parallaxBottom) {
+  //   var imagesParallax = -(parallaxY - 400);
+  //   $('#images-parallax').css({ // TODO: only call when on screen
+  //     'transform': 'translate3d(0px, ' + (imagesParallax) + 'px, -1px)'
+  //   });
   // }
 }
 
