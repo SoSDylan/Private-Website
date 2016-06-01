@@ -3,15 +3,20 @@ footer
   background: none
   overflow: hidden
 
-.footer-content
-  width: 100vw
-  height: 100px
-  position: fixed
-  background-color: #111
-  bottom: 0px
+  .footer-content
+    width: 100vw
+    height: 100vh
+    padding-top: calc(100vh - 100px)
+    position: fixed
+    background-color: #111
+    bottom: 0px
+    z-index: -100
 
-  p
-    color: #eee
-    text-align: center
-    padding: calc(50px - 9px) 0
-    margin: 0
+    &.hidden
+      background: none
+
+    p
+      color: #eee
+      text-align: center
+      padding: calc(50px - 9px) 0
+      margin: 0

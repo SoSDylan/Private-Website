@@ -73,12 +73,12 @@ function scrollHandler() {
     }
     parallaxBottom += parallaxSections[i][0].height();
   }
-  // if (scroll <= parallaxTop && scroll >= parallaxBottom) {
-  //   var imagesParallax = -(parallaxY - 400);
-  //   $('#images-parallax').css({ // TODO: only call when on screen
-  //     'transform': 'translate3d(0px, ' + (imagesParallax) + 'px, -1px)'
-  //   });
-  // }
+
+  if (scroll + $(window).height() <= $(document).height() - 200) {
+    $('.footer-content').addClass('hidden');
+  } else {
+    $('.footer-content').removeClass('hidden');
+  }
 }
 
 // function scrollTo(element) {
