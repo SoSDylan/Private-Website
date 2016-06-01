@@ -1,4 +1,5 @@
 var navFixed = false;
+var removedNavFixed = false;
 
 $(window).scroll(function() {
   window.requestAnimationFrame(scrollHandler);
@@ -16,24 +17,27 @@ function scrollHandler() {
   if (scroll >= introHeight - ($(window).width() <= 680 ? 52 : 76)) { // 53 for small screens
     if (!navFixed) {
       navFixed = true;
+      removedNavFixed = true;
 
       $('nav').addClass('fixed');
 
       $('nav').css({ top: '-76px' });
       $('nav').animate({
         top: '0px'
-      }, 250, function() {
-      });
+      }, 400, "easeOutCubic");
     }
   } else {
     if (navFixed) {
       navFixed = false;
+      removedNavFixed = false;
 
       $('nav').animate({
         top: '-76px'
-      }, 250, function() {
-        $('nav').removeClass('fixed');
-        $('nav').css({ top: '0px' });
+      }, 400, "easeOutCubic", function() {
+        if (!removedNavFixed) {
+          $('nav').removeClass('fixed');
+          $('nav').css({ top: '0px' });
+        }
       });
     }
   }
@@ -63,21 +67,18 @@ function scrollHandler() {
     parallaxTop += parallaxSections[i][0].height();
     if (parallaxSections[i][1] != null && scroll <= parallaxTop && scroll >= parallaxBottom) {
       var parallaxValue = -(parallaxBottom - 100) > 0 ? -(parallaxY) : -(parallaxY - parallaxBottom - 100);
-      if (i == 0) {
-        console.log(parallaxValue);
-      }
       parallaxSections[i][1].css({
         'transform': 'translate3d(0px, ' + (parallaxValue) + 'px, -1px)'
       });
     }
     parallaxBottom += parallaxSections[i][0].height();
   }
-  // if (scroll <= parallaxTop && scroll >= parallaxBottom) {
-  //   var imagesParallax = -(parallaxY - 400);
-  //   $('#images-parallax').css({ // TODO: only call when on screen
-  //     'transform': 'translate3d(0px, ' + (imagesParallax) + 'px, -1px)'
-  //   });
-  // }
+
+  if (scroll + $(window).height() <= $(document).height() - 200) {
+    $('.footer-content').addClass('hidden');
+  } else {
+    $('.footer-content').removeClass('hidden');
+  }
 }
 
 // function scrollTo(element) {
