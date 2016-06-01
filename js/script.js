@@ -11,8 +11,9 @@ $(window).resize(function() {
 function scrollHandler() {
   var scroll = $(window).scrollTop();
   var introHeight = $('.intro-section').height();
+  var width = $(window).width();
 
-  if (scroll >= introHeight - 76) {
+  if (scroll >= introHeight - ($(window).width() <= 680 ? 52 : 76)) { // 53 for small screens
     if (!navFixed) {
       navFixed = true;
 
