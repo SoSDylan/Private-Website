@@ -11,8 +11,9 @@ $(window).resize(function() {
 
 function scrollHandler() {
   var scroll = $(window).scrollTop();
-  var introHeight = $('.intro-section').height();
+  var height = $(window).height();
   var width = $(window).width();
+  var introHeight = $('.intro-section').height();
 
   if (scroll >= introHeight - ($(window).width() <= 680 ? 52 : 76)) { // 53 for small screens
     if (!navFixed) {
@@ -79,6 +80,12 @@ function scrollHandler() {
   } else {
     $('.footer-content').removeClass('hidden');
   }
+
+  $('.parallax-landing-hidden').each(function(i, v) {
+    if ($(v).offset().top < scroll + height - 40) {
+      $(v).removeClass('parallax-landing-hidden');
+    }
+  })
 }
 
 // function scrollTo(element) {

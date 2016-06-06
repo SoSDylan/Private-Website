@@ -16,3 +16,12 @@
   pointer-events: none
   transform: translate3d(0px, 0px, -1px)
   top: 0px
+
+.parallax-landing
+  transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1)
+  transform: translate(0, 0)
+  opacity: 1
+
+.parallax-landing-hidden
+  transform: translate(50px, 0)
+  opacity: 0
