@@ -9,10 +9,10 @@ head
     //- link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:100,300' type='text/css')
 body
     nav
-        .header-title
+        .header-title.load-animation.load-animation-start
             a(href="")
                 span DYLΛN LΛRSEN
-        .header-navigation
+        .header-navigation.load-animation.load-animation-start
             a(href="#intro")#intro-nav.selected
                 span Home
             a(href="#about")#about-nav
@@ -24,13 +24,16 @@ body
             a(href="#contact")#contact-nav.button
                 span Contact Me
 
+    
     #intro.intro-section.parallax-parent
         #intro-parallax.intro-background.parallax(style="background-image: url('./images/intro-background-1440.jpg')")
             .darken-30
         .intro-title
             .intro-text
-                h3 DYLΛN LΛRSEN
-                h1 Lorem ipsum, dolor sit amet.
+                h3.load-animation.load-animation-start DYLΛN LΛRSEN
+                h1.load-animation.load-animation-start Lorem ipsum, dolor sit amet.
+    
+    
     #about.about-section
         .about-title.parallax-landing.parallax-landing-hidden
             h1 About
@@ -38,6 +41,8 @@ body
             .about-image.parallax-landing.parallax-landing-hidden
                 img(src="./images/profile.jpg").profile-image
             span.text.parallax-landing.parallax-landing-hidden Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed molestie augue sit amet leo consequat posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin vel ante a orci tempus eleifend ut et magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra.
+    
+    
     #images.parallax-parent
         .heading-section
             #images-parallax.heading-background.parallax(style="background-image: url('./images/images-background-1440.jpg')")
@@ -45,7 +50,48 @@ body
             .heading-title
                 .heading-text
                     h1 Photos
-    .placeholder
+        .content-section
+            .grid
+                ul
+                    li
+                        .image(style="background-image: url(./images/images-background-1440.jpg)")
+                    li
+                        .image(style="background-image: url(./images/images-background-1440.jpg)")
+                    li
+                        .image(style="background-image: url(./images/images-background-1440.jpg)")
+                ul
+                    li
+                        .image(style="background-image: url(./images/images-background-1440.jpg)")
+                    li
+                        .image(style="background-image: url(./images/images-background-1440.jpg)")
+                    li
+                        .image(style="background-image: url(./images/images-background-1440.jpg)")
+    
+    
+    #films.parallax-parent
+        .heading-section
+            #films-parallax.heading-background.parallax(style="background-image: url('./images/images-background-1440.jpg')")
+                .darken-20
+            .heading-title
+                .heading-text
+                    h1 Films
+        .content-section
+            .grid
+                ul
+                    li
+                        .image(style="background-image: url(./images/images-background-1440.jpg)")
+                    li
+                        .image(style="background-image: url(./images/images-background-1440.jpg)")
+                    li
+                        .image(style="background-image: url(./images/images-background-1440.jpg)")
+                ul
+                    li
+                        .image(style="background-image: url(./images/images-background-1440.jpg)")
+                    li
+                        .image(style="background-image: url(./images/images-background-1440.jpg)")
+                    li
+                        .image(style="background-image: url(./images/images-background-1440.jpg)")
+    //- .placeholder
 
     footer
         .footer-content
