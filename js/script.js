@@ -52,7 +52,7 @@ function scrollHandler() {
     }
   }
 
-  var navSections = [ [ $('#intro'), $('#intro-nav') ], [ $('#about'), $('#about-nav') ], [ $('#images'), $('#images-nav') ]/*, [ $('#portfolio'), $('#portfolio-nav') ], [ $('#contact'), $('#contact-nav') ]*/ ];
+  var navSections = [ [ $('#intro'), $('#intro-nav') ], [ $('#about'), $('#about-nav') ], [ $('#images'), $('#images-nav') ], [ $('#films'), $('#films-nav') ]/*, [ $('#portfolio'), $('#portfolio-nav') ], [ $('#contact'), $('#contact-nav') ]*/ ];
   for (var i = 0; i < navSections.length; i++) {
     if (scroll + 76 >= navSections[i][0].offset().top && scroll + 76 < navSections[i][0].offset().top + navSections[i][0].height()) {
       navSections[i][1].addClass('selected');
@@ -72,7 +72,7 @@ function scrollHandler() {
   var parallaxTop = 0;
   var parallaxBottom = -$(window).height();
 
-  var parallaxSections = [ [ $('#intro'), $('#intro-parallax') ], [ $('#about'), null ], [ $('#images'), $('#images-parallax') ] ];
+  var parallaxSections = [ [ $('#intro'), $('#intro-parallax') ], [ $('#about'), null ], [ $('#images'), $('#images-parallax') ], [ $('#films'), $('#films-parallax') ] ];
   for (var i = 0; i < parallaxSections.length; i++) {
     parallaxTop += parallaxSections[i][0].height();
     if (parallaxSections[i][1] != null && scroll <= parallaxTop && scroll >= parallaxBottom) {
