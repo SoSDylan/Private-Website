@@ -1,6 +1,15 @@
 var navFixed = false;
 var removedNavFixed = false;
 
+$(function() {
+  $('.load-animation-start').each(function(i, v) {
+    var self = this
+    setTimeout(function () {
+      $(self).removeClass('load-animation-start');
+    }, i * 70);
+  });
+});
+
 $(window).scroll(function() {
   window.requestAnimationFrame(scrollHandler);
 });
@@ -85,7 +94,7 @@ function scrollHandler() {
     if ($(v).offset().top < scroll + height - 40) {
       $(v).removeClass('parallax-landing-hidden');
     }
-  })
+  });
 }
 
 // function scrollTo(element) {
