@@ -63,18 +63,12 @@ function scrollHandler() {
 
   var parallaxY = (scroll / 1.6).toFixed(0);
 
-  // if (scroll <= introHeight) {
-  //   $('#intro-parallax').css({ // TODO: only call when on screen
-  //     'transform': 'translate3d(0px, -' + parallaxY + 'px, -1px)'
-  //   });
-  // }
-
   var parallaxTop = 0;
   var parallaxBottom = -$(window).height();
 
   var parallaxSections = [ [ $('#intro'), $('#intro-parallax') ], [ $('#about'), null ], [ $('#images'), $('#images-parallax') ], [ $('#films'), $('#films-parallax') ] ];
   for (var i = 0; i < parallaxSections.length; i++) {
-    parallaxTop += parallaxSections[i][0].height();
+    parallaxTop += parallaxSections[i][0].height(); // TODO: Fix parallax for Films
     if (parallaxSections[i][1] != null && scroll <= parallaxTop && scroll >= parallaxBottom) {
       var parallaxValue = -(parallaxBottom - 100) > 0 ? -(parallaxY) : -(parallaxY - parallaxBottom - 100);
       parallaxSections[i][1].css({
@@ -97,26 +91,17 @@ function scrollHandler() {
   });
 }
 
-// function scrollTo(element) {
-//   $('html, body').animate({ scrollTop: $("#" + element).offset().top }, 750);
-// }
-
 $(document).on('click', 'a[href^="#"]', function(e) {
-  // target element id
   var id = $(this).attr('href');
 
-  // target element
   var $id = $(id);
   if ($id.length === 0) {
       return;
   }
 
-  // prevent standard hash navigation (avoid blinking in IE)
   e.preventDefault();
-  // top position relative to the document
   var pos = $(id).offset().top < 76 ? 0 : $(id).offset().top - 76;
-  var time = 800;//Math.abs(($(id).offset().top - 76 - $(window).scrollTop()).toFixed(0));
+  var time = 800;
   console.log(time);
-  // animated top scrolling
   $('body, html').animate({ scrollTop: pos }, time, "easeOutQuart");
 });
